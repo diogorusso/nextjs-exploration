@@ -1,7 +1,13 @@
-html,
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* html,
 body {
   padding: 0;
   margin: 0;
+  background-color: aquamarine;
   font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
     Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -31,8 +37,14 @@ ul {
   padding: 0;
   list-style: none;
 }
+*/
 
-button {
-  padding: 0.5rem 1rem;
-  font-weight: bold;
-}
+ .MuiButton-contained  {
+    @apply bg-primary-main hover:bg-primary-accent;
+  } 
+
+
+  .bg-gradient-rgb-110-231-183 {
+    background-color: rgb(110, 231, 183);
+    background-image: radial-gradient(at 12% 52%, rgb(30, 64, 175) 0, transparent 59%), radial-gradient(at 89% 59%, rgb(199, 210, 254) 0, transparent 37%), radial-gradient(at 90% 92%, rgb(244, 244, 245) 0, transparent 36%), radial-gradient(at 67% 75%, rgb(103, 232, 249) 0, transparent 93%), radial-gradient(at 58% 4%, rgb(6, 95, 70) 0, transparent 18%), radial-gradient(at 95% 18%, rgb(20, 83, 45) 0, transparent 54%);
+  }

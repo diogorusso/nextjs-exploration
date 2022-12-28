@@ -1,0 +1,5 @@
+.container {
+    @apply h-screen flex overflow-hidden
+    /* @apply h-screen flex overflow-hidden bg-gradient-to-br from-indigo-500 to-indigo-800 */
+  }
+  

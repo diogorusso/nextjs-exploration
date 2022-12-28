@@ -1,0 +1,1 @@
+export const layoutParams ="?navLeft=fixed&navBottom=fixed&navTop=fixed&asideRight=mini&asideLeft=mini"
