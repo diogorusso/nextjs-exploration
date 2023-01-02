@@ -1,4 +1,4 @@
-import Layout from "../../layouts/layout";
+import Layout from "../../layouts/Base";
 
 import Bitcoin from "../../components/_base/api/bitcoin"
 import Bitcoin2 from "../../components/_base/api/bitcoin2"

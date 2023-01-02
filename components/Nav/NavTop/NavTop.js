@@ -1,14 +1,14 @@
 import { useRouter } from "next/router";
 import Template from "./templates/NavTop"
 
-const NavTop = ({data}) => {
+const NavTop = ({items,params}) => {
     const router = useRouter();
   
     const options = [
       {
         value: "fixed",
         label: "Fixed Navigation",
-        component: <Template data={data} />,
+        component: <Template items={items} params={params} key={0}/>,
       },
       {
         value: "float",
@@ -18,7 +18,7 @@ const NavTop = ({data}) => {
     ];
   
     return options.map((option) => {
-      const { component, value } = option;
+      const { component, value} = option;
       return component && router.query.navTop === value ? component : null;
     });
   };

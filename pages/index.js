@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Script from "next/script";
 import styles from "../styles/Home.module.css";
-import Layout from "../layouts/Layout";
+import Layout from "../layouts/Base";
 
 
 import dynamic from "next/dynamic";

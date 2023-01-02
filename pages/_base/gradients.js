@@ -1,4 +1,4 @@
-import Layout from "../../layouts/layout";
+import Layout from "../../layouts/Base";
 export default function Gradients() {
     return (
       <Layout>

@@ -1,4 +1,4 @@
-import Layout from "../../layouts/layout";
+import Layout from "../../layouts/Base";
 import dynamic from "next/dynamic";
 
 const AdvancedChart = dynamic(

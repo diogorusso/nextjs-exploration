@@ -2,19 +2,19 @@ import IconRandom from "../../components/IconRandom";
 
 export const navTopHealth = [
   {
-    title: "L2 Dashboard",
+    title: "Dashboard",
     icon: <IconRandom />,
   },
   {
-    title: "L2 Health Summary",
+    title: "Health Summary",
     icon: <IconRandom />,
   },
   {
-    title: "L2 Medical History",
+    title: "Medical History",
     icon: <IconRandom />,
   },
   {
-    title: "L2 Medications",
+    title: "Medications",
     icon: <IconRandom />,
   },
   {

@@ -1,4 +1,4 @@
-import Layout from "../../layouts/layout";
+import Layout from "../../layouts/Base";
 import DataGrid1 from "../../components/_base/dataGrid/dataGrid1";
 import DataGrid2 from "../../components/_base/dataGrid/dataGrid2";
 

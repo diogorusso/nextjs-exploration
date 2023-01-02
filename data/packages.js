@@ -8,10 +8,11 @@ import {asideCarbon} from "./carbon/asideLeft"
 
 
 
-export const pagesDataSrc = {
+export const packagesDataSrc = {
   health: {
     title: "Health Page",
     description: "This is the health page",
+    layoutParams: "navLeft=fixed&navBottom=fixed&navTop=fixed&asideRight=mini&asideLeft=mini",
     asideLeft: asideHealth,
     navTop: navTopHealth,
     asideBottom: asideHealth,
@@ -22,6 +23,7 @@ export const pagesDataSrc = {
   carbon: {
     title: "Carbon Footprint Page",
     description: "This is the carbon footprint page",
+    layoutParams: "navLeft=fixed&navBottom=fixed&navTop=fixed&asideRight=mini&asideLeft=mini",
     asideLeft: asideCarbon,
     navTop: navLeftCarbon,
     asideBottom: asideCarbon,
@@ -29,15 +31,10 @@ export const pagesDataSrc = {
     navRight: asideCarbon,
     asideRight: navLeftCarbon,
   },
-//   crypto: {
-//     title: "Cryptocurrency Page",
-//     description: "This is the cryptocurrency page",
-//     data: menuItemsCrypto,
-//   },
-  // add additional properties for other values of router.query.package
   default: {
-    title: "Default Page",
-    description: "This is the default page",
+    title: "Micropress UI Kit",
+    description: "Next.js + Tailwind.js + Material UI multi use UI Kit",
+    layoutParams: "asideLeft=mini&navTop=fixed",
     asideLeft: asideCarbon,
     navTop: navTopCarbon,
     asideBottom: asideCarbon,

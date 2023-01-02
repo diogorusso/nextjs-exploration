@@ -1,4 +1,4 @@
-import Layout from "../../layouts/layout";
+import Layout from "../../layouts/Base";
 
 import LineChart from "../../components/_base/charts/lineChart";
 import LineMultiAxisChart from "../../components/_base/charts/lineMultiAxisChart";

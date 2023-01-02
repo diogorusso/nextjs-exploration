@@ -13,7 +13,7 @@ import Checkbox from "@mui/material/Checkbox";
 import Drawer from "@mui/material/Drawer";
 import ClickAwayListener from "@mui/base/ClickAwayListener";
 
-import { layoutParams } from "../../../../utils/layoutsParams";
+import { layoutParams } from "../../../../utils/getPackageData";
 
 function BasicMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -108,30 +108,32 @@ function MuiElements() {
   );
 }
 
-function MenuLeft({label}) {
+function MenuLeft({ label,params}) {
   const router = useRouter();
-  const active = "text-blue-500 border-b-2 border-blue-500 cursor-pointer dark:text-white dark:border-white"
+  const active =
+    "text-blue-500 border-b-2 border-blue-500 cursor-pointer dark:text-white dark:border-white";
   const isActive = router.query.view === slugify(label, { lower: true });
-  
+  const activeStyle = isActive ? active : "";
   return (
     <Link
-    href={`/${router.query.package}/${router.query.feature}/${encodeURIComponent(slugify(label,{lower:true}))}${layoutParams}`}
-      className={`inline-flex items-center h-full mr-8 border-b-2 border-transparent cursor-pointer ${
-        isActive ? active : ""}`}
+      href={`/${router.query.package}/${
+        router.query.feature
+      }/${encodeURIComponent(slugify(label, { lower: true }))}?${params}`}
+      className={`${activeStyle} pb-4 inline-flex items-center h-full mr-8 border-b-2 border-transparent cursor-pointer`}
     >
       {label}
     </Link>
   );
 }
 
-export default function MenuTop({ data }) {
+export default function MenuTop({ items,params}) {
   return (
     <>
-      <div className="hidden w-full h-16 px-10 border-b border-gray-200 lg:flex dark:border-gray-800">
+      <div className="hidden w-full px-10 pt-6 border-b border-gray-200 lg:flex dark:border-gray-800">
         <div className="flex h-full text-gray-600 dark:text-gray-400">
-        {data.map((item) => (
-          <MenuLeft label={item.title}/>
-        ))}
+          {items.map((item) => (
+            <MenuLeft label={item.title} key={item.title} params={params} />
+          ))}
         </div>
         <div className="flex items-center ml-auto space-x-7">
           <BasicMenu />

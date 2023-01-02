@@ -1,4 +1,4 @@
-import Layout from "../../layouts/layout";
+import Layout from "../../layouts/Base";
 import AvartarsGroup from "../../components/_base/elements/avatarsGroup";
 
 export default function Home() {

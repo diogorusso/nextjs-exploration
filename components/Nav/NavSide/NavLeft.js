@@ -1,14 +1,14 @@
 import { useRouter } from "next/router";
-import NavSide from "./templates/Base";
+import NavSide from "./templates/NavSide";
 
-const NavLeft = ({data }) => {
+const NavLeft = ({items,params}) => {
     const router = useRouter();
   
     const options = [
       {
         value: "fixed",
         label: "Fixed Navigation",
-        component: <NavSide menuItems={data} />,
+        component: <NavSide items={items} params={params} key={0} />,
       },
       {
         value: "float",
@@ -18,7 +18,7 @@ const NavLeft = ({data }) => {
     ];
   
     return options.map((option) => {
-      const { component, value } = option;
+      const { component, value} = option;
       return component && router.query.navLeft === value ? component : null;
     });
   };

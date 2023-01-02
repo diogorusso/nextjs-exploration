@@ -1,31 +1,42 @@
 import IconRandom from "../../components/IconRandom";
-
+import CardThumb from "../../components/_base/cards/cardThumb";
 
 export const navLeftCarbon = [
   {
     title: "Dashboard",
     icon: <IconRandom />,
+    layout: 
+      <CardThumb
+        title="Noteworthy technology acquisitions 2021"
+        description="Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order."
+        imgUrl="https://flowbite.com/docs/images/blog/image-1.jpg"
+        buttonText="Read Less"
+        buttonUrl="#"
+      />
+    ,
+    slug: "dashboard",
   },
   {
-    title: "My Carbon Footprint",
+    title: "my carbon footprint",
     icon: <IconRandom />,
+    slug: "my-carbon-footprint",
   },
   {
     title: "Carbon Offset Options",
     icon: <IconRandom />,
+    slug: "carbon-offset-options",
   },
   {
     title: "Purchase History",
     icon: <IconRandom />,
+    slug: "purchase-history",
   },
   {
     title: "Account Settings",
     icon: <IconRandom />,
+    slug: "account-settings",
   },
 ];
-
-
-
 
 export const menuItemsCarbon = [
   {

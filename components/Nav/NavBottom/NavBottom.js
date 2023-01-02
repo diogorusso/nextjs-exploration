@@ -8,7 +8,7 @@ const NavBottom = () => {
       {
         value: "fixed",
         label: "Fixed Navigation",
-        component: <BottomFixed />,
+        component: <BottomFixed key={0} />,
       },
       {
         value: "float",

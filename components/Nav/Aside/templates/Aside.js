@@ -1,20 +1,10 @@
 import * as React from "react";
-
 import Link from "next/link";
-import slugify from "slugify";
-import { useRouter } from "next/router";
-
-import Tooltip from "@mui/material/Tooltip";
 
 import IconRandom from "../../../IconRandom";
 
-const layoutParams =
-  "?navLeft=fixed&navBottom=fixed&navTop=fixed&asideRight=mini&asideLeft=mini";
-
-const SidebarButton = ({ label, clickOpen, hoverOpen }) => {
-  const router = useRouter();
+const SidebarButton = ({ label, link, clickOpen, hoverOpen }) => {
   let sidebarMenuButton = clickOpen ? "flex w-full" : "";
-
   let sidebarMenuTitleClick = clickOpen
     ? "opacity-1 w-full"
     : hoverOpen && !clickOpen
@@ -28,15 +18,10 @@ const SidebarButton = ({ label, clickOpen, hoverOpen }) => {
       ? "opacity-1 w-full"
       : "";
 
-
-
   return (
-    <Tooltip title="Add" placement="right-start">
-      <Link
+     <Link
         className={`${sidebarMenuButton} flex min-w-full p-2 rounded-full bg-primary-main hover:opacity-30`}
-        href={`/${router.query.package}/${encodeURIComponent(
-          slugify(label, { lower: true })
-        )}${layoutParams}`}
+        href={`/${link}`}
       >
         <IconRandom />
         <span
@@ -45,11 +30,10 @@ const SidebarButton = ({ label, clickOpen, hoverOpen }) => {
           {label}
         </span>
       </Link>
-    </Tooltip>
   );
 };
 
-export default function ResponsiveDrawer({ items }) {
+export default function ResponsiveDrawer({items,params}) {
   const [clickOpen, setClickOpen] = React.useState(false);
   const [hoverOpen, setHoverOpen] = React.useState(false);
 
@@ -96,9 +80,11 @@ export default function ResponsiveDrawer({ items }) {
           onMouseLeave={handleHoverToggle}
         >
           <div className="px-4 mt-4 space-y-4">
-            {items.map((button) => (
+            {items.map((item) => (
               <SidebarButton
-                label={button.title}
+                key={item.title}
+                label={item.title}
+                link={item.link +"?"+ params}
                 clickOpen={clickOpen}
                 hoverOpen={hoverOpen}
               />
