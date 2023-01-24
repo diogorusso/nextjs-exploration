@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3003",
     "build": "next build",
     "start": "next start"
   },
@@ -14,6 +14,7 @@
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.0",
     "@mui/x-data-grid": "^5.17.17",
+    "@react-three/fiber": "^8.10.0",
     "add": "^2.0.6",
     "axios": "^1.2.1",
     "chart.js": "^4.1.1",
@@ -24,7 +25,9 @@
     "performance-now": "^2.1.0",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.1.0",
+    "react-colorful": "^5.6.1",
     "react-dom": "^18.2.0",
+    "react-image-annotate": "^1.8.0",
     "react-leaflet": "^4.2.0",
     "react-leaflet-markercluster": "^3.0.0-rc1",
     "react-tradingview-embed": "^3.0.6",

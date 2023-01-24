@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { getPackageData } from "../../utils/getPackageData";
+import { getPackageData } from "../../utils/packagesData";
 
 function RedirectPage() {
   const router = useRouter();

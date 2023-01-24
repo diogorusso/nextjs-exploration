@@ -13,8 +13,6 @@ export default function Home() {
   const pageData = getPackageData(router.query.package);
   const sectionQuery = router.query.section
   const title = findLayoutMatchingTitle(sectionQuery,pageData.navLeft)
-
-  
   return (
    
     <Layout>

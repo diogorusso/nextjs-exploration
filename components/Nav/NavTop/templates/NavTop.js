@@ -1,5 +1,6 @@
 import Button from "@mui/material/Button";
 import * as React from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import slugify from "slugify";
@@ -13,9 +14,11 @@ import Checkbox from "@mui/material/Checkbox";
 import Drawer from "@mui/material/Drawer";
 import ClickAwayListener from "@mui/base/ClickAwayListener";
 
-import { layoutParams } from "../../../../utils/getPackageData";
+import { HexColorPicker } from "react-colorful";
+import {hexToHSL} from "../../../../utils/hexToHSL"
+import { fontsList } from "../../../../utils/fontsList";
 
-function BasicMenu() {
+function BasicMenu({color,onChange}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -34,7 +37,7 @@ function BasicMenu() {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        Dashboard
+        Dashboard 
       </ButtonUnstyled>
 
       <MenuUnstyled
@@ -49,6 +52,9 @@ function BasicMenu() {
           root: { className: "bg-gray-800 px-4 spacey-4 rounded-lg" },
         }}
       >
+         <HexColorPicker color={color} onChange={onChange} />
+        <h3>HEX: {color}</h3>
+        <h3>H: {hexToHSL(color).h} S: {hexToHSL(color).s} L: {hexToHSL(color).l} </h3>
         <MenuItemUnstyled onClick={handleClose}>Profile</MenuItemUnstyled>
         <MenuItemUnstyled onClick={handleClose}>My account</MenuItemUnstyled>
         <MenuItemUnstyled onClick={handleClose}>Logout</MenuItemUnstyled>
@@ -56,6 +62,54 @@ function BasicMenu() {
     </div>
   );
 }
+
+
+function FontMenu({font,fontClick}) {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  return (
+    <div>
+      <ButtonUnstyled
+        id="basic-button"
+        aria-controls={open ? "basic-menu" : undefined}
+        aria-haspopup="true"
+        aria-expanded={open ? "true" : undefined}
+        onClick={handleClick}
+      >
+        Font
+      </ButtonUnstyled>
+
+      <MenuUnstyled
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          "aria-labelledby": "basic-button",
+        }}
+        slotProps={{
+          root: { className: "bg-gray-800 px-4 spacey-4 rounded-lg" },
+        }}
+      >
+        <h2>{font}</h2>
+        {fontsList.map((item) => (
+          <MenuItemUnstyled key={item.name} 
+          onClick={() => fontClick(item.name)}>
+            {item.name}
+          </MenuItemUnstyled>
+        ))}
+      </MenuUnstyled>
+    </div>
+  );
+}
+
 
 function DrawerButton() {
   const [Open, setOpen] = React.useState(false);
@@ -126,17 +180,20 @@ function MenuLeft({ label,params}) {
   );
 }
 
-export default function MenuTop({ items,params}) {
+export default function MenuTop({ items,params,color,onChange,font,fontClick}) {
+  
   return (
     <>
-      <div className="hidden w-full px-10 pt-6 border-b border-gray-200 lg:flex dark:border-gray-800">
-        <div className="flex h-full text-gray-600 dark:text-gray-400">
+      <div className="hidden w-full px-10 pt-6 text-gray-900 border-b border-gray-200 lg:flex dark:border-gray-800 dark:text-gray-100">
+        <div className="flex h-full">
           {items.map((item) => (
             <MenuLeft label={item.title} key={item.title} params={params} />
           ))}
+         
         </div>
         <div className="flex items-center ml-auto space-x-7">
-          <BasicMenu />
+          <BasicMenu color={color} onChange={onChange} />
+          <FontMenu font={font} fontClick={fontClick}/>
         </div>
       </div>
     </>

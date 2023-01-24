@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import { AnimatePresence } from "framer-motion";
 
 import "../styles/globals.css";
-import { ThemeProvider, CssBaseline } from "@mui/material";
+import { CssBaseline } from "@mui/material";
+import { Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles';
 import { darkTheme } from "../themes/darkTheme";
 
 export default function App({ Component, pageProps,router }) {
@@ -11,15 +11,17 @@ export default function App({ Component, pageProps,router }) {
   useEffect(() => {
     setTimeout(() => setLoading(false), 250);
   }, []);
+  
+
 
   return (
     <>
-      <ThemeProvider theme={darkTheme}>
+      <CssVarsProvider theme={darkTheme}>
         <CssBaseline />
         <AnimatePresence mode="wait" initial={true}>
           {!loading ? <Component {...pageProps} /> : "hello"}
         </AnimatePresence>
-      </ThemeProvider>
+      </CssVarsProvider>
     </>
   );
 }

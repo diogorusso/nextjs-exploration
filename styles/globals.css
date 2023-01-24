@@ -39,8 +39,20 @@ ul {
 }
 */
 
+/* :root{
+   --primary-h: 125;
+  --primary-s: 72%;
+  --primary-l: 62%;
+  --color-nice:rgb(255 115 179);
+
+} */
+
+#__next{
+  @apply bg-gradient-to-l from-primary-600 via-primary-500 to-primary-600 !important;
+}
+
  .MuiButton-contained  {
-    @apply bg-primary-main hover:bg-primary-accent;
+    @apply bg-primary-400 hover:bg-primary-600;
   } 
 
 
@@ -48,3 +60,5 @@ ul {
     background-color: rgb(110, 231, 183);
     background-image: radial-gradient(at 12% 52%, rgb(30, 64, 175) 0, transparent 59%), radial-gradient(at 89% 59%, rgb(199, 210, 254) 0, transparent 37%), radial-gradient(at 90% 92%, rgb(244, 244, 245) 0, transparent 36%), radial-gradient(at 67% 75%, rgb(103, 232, 249) 0, transparent 93%), radial-gradient(at 58% 4%, rgb(6, 95, 70) 0, transparent 18%), radial-gradient(at 95% 18%, rgb(20, 83, 45) 0, transparent 54%);
   }
+  
+ 
